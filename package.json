@@ -1,0 +1,18 @@
+{
+  "name": "boredmode",
+  "version": "0.0.1",
+  "main": "src/app.ts",
+  "repository": "git@github.com:akshayupadhya/boredmode.git",
+  "author": "akshay upadhya <akshaysrinagar@gmail.com>",
+  "private": false,
+  "scripts": {
+    "dev": "ts-node src/app.ts",
+    "build": "tsc --build tsconfig.json",
+    "watch" : "nodemon"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.1.6"
+  }
+}
