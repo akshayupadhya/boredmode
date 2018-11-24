@@ -1,13 +1,17 @@
 {
-	"restartable": "rs",
+	"config": 1200,
 	"ignore": [
 		".git",
-		"node_modules/**/node_modules",
+		"node_modules/",
 		"dist/"
 	],
 	"verbose": true,
 	"execMap": {
 		"ts": "ts-node"
+	},
+	"events": {
+		"restart": "sh ./nodemon.sh",
+		"crash": "sh ./nodemon.sh"
 	},
 	"watch": [
 		"src/**/*.ts"
@@ -15,6 +19,6 @@
 	"env": {
 		"NODE_ENV": "development"
 	},
-	"ext": "ts,js,json",
-	"exec": "ts-node ./src/app.ts"
+	"ext": "ts",
+	"exec": "ts-node  --project tsconfig.json src/main.ts"
 }
