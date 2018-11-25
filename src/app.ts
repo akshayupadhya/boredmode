@@ -1,13 +1,10 @@
 import express from 'express'
+import api from './backend/routes'
 
 const app = express()
-
 app.get('/',(req,res) => {
 	res.send(`hello there`)
 })
-
-// app.listen('3000', () => {
-// 	console.log(`app listening on port 3000`)
-// })
+app.use('/api', api)
 
 export default app
