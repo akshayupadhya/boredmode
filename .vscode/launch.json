@@ -13,7 +13,7 @@
 				"${relativeFile}"
 			],
 			"sourceMaps": true,
-			"cwd": "${workspaceRoot}",
+			// "cwd": "${workspaceRoot}",
 			"protocol": "inspector",
 			"program": "${workspaceFolder}/src/main.ts",
 			"outFiles": [
