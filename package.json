@@ -8,9 +8,9 @@
   "scripts": {
     "start": "npm run build && node dist/app.js",
     "build-backend": "tsc --build tsconfig.json",
-    "build-fronotend": "parcel build src/frontend/main.tsx -o public/bundle.js",
+    "build-fronotend": "parcel build src/frontend/main.tsx -d public -o bundle.js",
     "watch-backend": "nodemon",
-    "watch-frontend": "parcel watch src/frontend/main.tsx -o public/bundle.js",
+    "watch-frontend": "parcel watch src/frontend/main.tsx -d public -o bundle.js",
     "watch" : "concurrently \"npm:watch-*\"",
     "build" : "concurrently \"npm:build-*\""
   },
