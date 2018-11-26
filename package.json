@@ -6,9 +6,9 @@
   "author": "akshay upadhya <akshaysrinagar@gmail.com>",
   "private": false,
   "scripts": {
-    "start": "npm run build && node dist/app.js",
+    "start": "npm run build && node dist/main.js",
     "build-backend": "tsc --build tsconfig.json",
-    "build-fronotend": "parcel build src/frontend/main.tsx -d public -o bundle.js",
+    "build-frontend": "parcel build src/frontend/main.tsx -d public -o bundle.js",
     "watch-backend": "nodemon",
     "watch-frontend": "parcel watch src/frontend/main.tsx -d public -o bundle.js",
     "watch" : "concurrently \"npm:watch-*\"",
