@@ -58,6 +58,7 @@
   },"exclude": [
     "src/frontend/",
     "node_modules/",
-    "dist/"
+    "dist/",
+    "public/"
   ]
 }
