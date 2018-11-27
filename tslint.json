@@ -5,6 +5,7 @@
 	],
 	"jsRules": {},
 	"rules": {
+		"no-angle-bracket-type-assertion":false,
 		"tab_size": 2,
 		"indent": [
 			true,

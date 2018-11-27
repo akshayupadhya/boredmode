@@ -1,9 +1,9 @@
-import React,{ Component } from 'react'
-export default class Main extends Component {
-	render () {
+import React,{ Component ,StatelessComponent } from 'react'
+export default class AppComponent extends Component<{},{}> {
+	public render () {
 		return (
 			<h1 className='hello'>
-				hello from server react
+				hello from react server
 			</h1>
 		)
 	}
