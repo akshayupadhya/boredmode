@@ -1,4 +1,4 @@
-import React,{ Component ,StatelessComponent } from 'react'
+import React,{ Component  } from 'react'
 export default class AppComponent extends Component<{},{}> {
 	public render () {
 		return (

@@ -1,16 +1,16 @@
 import express,{ Router ,Request,Response } from 'express'
 import path from 'path'
 
-import React,{ Component } from 'react'
+import React,{ createElement } from 'react'
 import { renderToString } from 'react-dom/server'
 
-import AppComponent from './frontend/main'
+import AppComponent from './frontend/App'
 
 const Frontend: Router = express()
-Frontend.use(express.static(path.resolve(__dirname, '../public')))
+Frontend.use(express.static(path.resolve(__dirname, '../dist/public')))
 
 Frontend.get('/', (req: Request, res: Response) => {
-	const jsx = React.createElement(AppComponent)
+	const jsx = createElement(AppComponent)
 	const reactDom: String = renderToString(jsx)
 
 	res.writeHead(200, { 'Content-Type': 'text/html' })
@@ -30,6 +30,6 @@ function htmlTemplate (reactDom: String) {
 			<script src="./bundle.js" defer></script>
 		</body>
 	</html>
-				`
+	`
 }
 export default Frontend

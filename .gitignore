@@ -6,7 +6,6 @@ package-lock.json
 
 #build folder
 dist/
-public/
 
 #temp files
 .cache

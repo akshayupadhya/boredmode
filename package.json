@@ -8,11 +8,12 @@
   "scripts": {
     "start": "npm run build && node dist/main.js",
     "build-backend": "tsc --build tsconfig.json",
-    "build-frontend": "parcel build src/frontend/app.tsx -d public -o bundle.js",
+    "build-frontend": "parcel build src/frontend/Main.tsx -d dist/public -o bundle.js",
     "watch-backend": "nodemon",
-    "watch-frontend": "parcel watch src/frontend/app.tsx -d public -o bundle.js",
-    "watch": "concurrently \"npm:watch-*\"",
-    "build": "concurrently \"npm:build-*\""
+    "watch-frontend": "parcel watch src/frontend/Main.tsx -d dist/public -o bundle.js",
+    "watch" : "concurrently \"npm:watch-*\"",
+    "build" : "concurrently \"npm:build-*\"",
+    "frontend": "parcel src/frontend/main.tsx"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.0",
@@ -31,6 +32,7 @@
   "dependencies": {
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
+    "isomorphic-fetch": "^2.2.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3"
   }
