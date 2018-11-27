@@ -1,35 +1,33 @@
-import express,{ Router ,Request,Response } from 'express'
-import path from 'path'
-
-import React,{ createElement } from 'react'
+import express, { Router, Request, Response } from 'express'
+import { resolve } from 'path'
+import { readFile } from 'fs'
+import { promisify } from 'util'
+import React, { createElement } from 'react'
 import { renderToString } from 'react-dom/server'
 
 import AppComponent from './frontend/App'
 
+const AsyncFileRead = promisify(readFile) // really need to understand why its not letting me assign it to type Promise<any|string>, seems like people are having trouble with promisify library
 const Frontend: Router = express()
-Frontend.use(express.static(path.resolve(__dirname, '../dist/public')))
+Frontend.use(express.static(resolve(__dirname, '../dist/public')))
 
-Frontend.get('/', (req: Request, res: Response) => {
-	const jsx = createElement(AppComponent)
-	const reactDom: String = renderToString(jsx)
+Frontend.get('/',
+	async (req: Request, res: Response) => {
+		try {
+			const jsx = createElement(AppComponent)
+			const reactDom: string = renderToString(jsx)
+			let html = await AsyncFileRead(resolve(__dirname, '../assets/index.html'), 'utf8')
+			const title: string = 'react app'
+			const keywords: string = `{${['boredmode','coolapp'].join(', ')}}`
+			html = html
+					.replace(/<!-- title -->/,title)
+					.replace(/<!--keywords-->/, keywords)
+					.replace(/<!-- server-rendered-component -->/, reactDom)
+			res.writeHead(200, { 'Content-Type': 'text/html' })
+			res.end(html)
+		} catch (e) {
+			console.log(`its an error`, e)
+		}
+	})
 
-	res.writeHead(200, { 'Content-Type': 'text/html' })
-	res.end(htmlTemplate(reactDom))
-	// res.send(`string`)
-})
-function htmlTemplate (reactDom: String) {
-	return `
-	<!DOCTYPE html>
-	<html>
-		<head>
-			<meta charset="utf-8">
-			<title>React SSR</title>
-		</head>
-		<body>
-			<div id="app">${ reactDom }</div>
-			<script src="./bundle.js" defer></script>
-		</body>
-	</html>
-	`
-}
 export default Frontend
