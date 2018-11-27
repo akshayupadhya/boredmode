@@ -1,0 +1,24 @@
+{
+	"config": 1200,
+	"ignore": [
+		".git",
+		"node_modules/",
+		"dist/"
+	],
+	"verbose": true,
+	"execMap": {
+		"ts": "ts-node"
+	},
+	"events": {
+		"restart": "sh ./nodemon.sh",
+		"crash": "sh ./nodemon.sh"
+	},
+	"watch": [
+		"src/**/*.ts"
+	],
+	"env": {
+		"NODE_ENV": "development"
+	},
+	"ext": "ts",
+	"exec": "ts-node  --project tsconfig.json src/main.ts"
+}
