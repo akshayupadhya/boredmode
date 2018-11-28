@@ -4,6 +4,7 @@ import { readFile } from 'fs'
 import { promisify } from 'util'
 import React, { createElement } from 'react'
 import { renderToString } from 'react-dom/server'
+import serialize from 'serialize-javascript'
 
 import AppComponent from './frontend/App'
 
@@ -11,16 +12,19 @@ const AsyncFileRead = promisify(readFile) // really need to understand why its n
 const Frontend: Router = express()
 Frontend.use(express.static(resolve(__dirname, '../dist/public')))
 
-Frontend.get('/',
+Frontend.get('*',
 	async (req: Request, res: Response) => {
 		try {
-			const jsx = createElement(AppComponent)
+			const data = 'data'
+			const jsx = createElement(AppComponent,{ data })
 			const reactDom: string = renderToString(jsx)
 			let html = await AsyncFileRead(resolve(__dirname, '../assets/index.html'), 'utf8')
 			const title: string = 'react app'
 			const keywords: string = `{${['boredmode','coolapp'].join(', ')}}`
+			const initialData = data ? data : undefined
 			html = html
 					.replace(/<!-- title -->/,title)
+					.replace(/<!--initial_data-->/,serialize(initialData))
 					.replace(/<!--keywords-->/, keywords)
 					.replace(/<!-- server-rendered-component -->/, reactDom)
 			res.writeHead(200, { 'Content-Type': 'text/html' })
@@ -28,6 +32,7 @@ Frontend.get('/',
 		} catch (e) {
 			console.log(`its an error`, e)
 		}
-	})
+	}
+)
 
 export default Frontend
