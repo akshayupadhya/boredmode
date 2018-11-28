@@ -6,7 +6,7 @@
   "author": "akshay upadhya <akshaysrinagar@gmail.com>",
   "private": false,
   "scripts": {
-    "start": "npm run build && node dist/main.js",
+    "start": "npm run build && node dist/Main.js",
     "build-backend": "tsc --build tsconfig.json",
     "build-frontend": "parcel build src/frontend/Main.tsx -d dist/public -o bundle.js",
     "watch-backend": "nodemon",
