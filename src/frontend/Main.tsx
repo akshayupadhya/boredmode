@@ -1,9 +1,13 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
 
-import AppComponent from './App'
+import App from './App'
 
-hydrate(
-	<AppComponent data={window.__INITIAL_DATA__}/>,
-	document.getElementById('app')
-)
+// declare global {
+// interface Window {
+// 		__INITIAL_DATA__: any
+// 	}
+// }
+// ^ ts drama , ikr
+// but still breaks linter
+hydrate(<App/>, document.getElementById('app'))

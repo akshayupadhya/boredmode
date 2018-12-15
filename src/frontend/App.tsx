@@ -1,16 +1,14 @@
 import React,{ Component } from 'react'
-interface Props {
-	data: string
-}
-export default class AppComponent extends Component<Props,{}> {
-	constructor (props: Props) {
-		super(props)
-	}
+
+import { BrowserRouter } from 'react-router-dom'
+
+import AppRouter from './Router'
+export default class App extends Component {
 	public render () {
-		return (
-			<h1 className='hello'>
-				hello ,{this.props.data} from react server
-			</h1>
+		return(
+			<BrowserRouter>
+				<AppRouter />
+			</BrowserRouter>
 		)
 	}
 }
