@@ -61,6 +61,6 @@
     // "src/frontend/",
     "node_modules/",
     "dist/",
-    "public/"
+    "assets/"
   ]
 }
