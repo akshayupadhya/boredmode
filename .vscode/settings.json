@@ -5,5 +5,8 @@
 	"workbench.editor.highlightModifiedTabs": true,
 	"tslint.alwaysShowStatus": true,
 	"tslint.alwaysShowRuleFailuresAsWarnings": true,
-	"tslint.autoFixOnSave": true
+	"tslint.autoFixOnSave": true,
+	"tslint.packageManager": "yarn",
+	"tslint.run": "onSave",
+	"prettier.tslintIntegration": true,
 }

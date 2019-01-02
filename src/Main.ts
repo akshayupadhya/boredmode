@@ -1,5 +1,5 @@
 import express, { Application } from 'express'
-import app from './app'
+import app from './App'
 import { isMaster, fork } from 'cluster'
 import { config as env } from 'dotenv'
 env()
