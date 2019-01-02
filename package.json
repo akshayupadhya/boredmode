@@ -14,11 +14,12 @@
     "watch": "concurrently \"npm:watch-*\"",
     "build": "concurrently \"npm:build-*\"",
     "frontend": "parcel src/frontend/main.tsx",
-    "postinstall": "npm run build"
+    "postinstall": "ts-node src/build.ts"
   },
   "devDependencies": {
     "@types/dotenv": "^6.1.0",
     "@types/express": "^4.16.0",
+    "@types/express-graphql": "^0.6.2",
     "@types/node": "^10.12.10",
     "@types/react": "^16.7.7",
     "@types/react-dom": "^16.0.10",
@@ -35,6 +36,8 @@
   "dependencies": {
     "dotenv": "^6.1.0",
     "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.0.2",
     "isomorphic-fetch": "^2.2.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
