@@ -9,5 +9,12 @@
 	"tslint.packageManager": "yarn",
 	"tslint.run": "onSave",
 	"prettier.tslintIntegration": true,
-	"prettier.useTabs": true
+	"prettier.useTabs": true,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	"prettier.singleQuote": true,
+	"prettier.tabWidth": 2,
+	"prettier.stylelintIntegration": true,
+	"prettier.trailingComma": "es5",
+	"editor.formatOnSave": true
 }
