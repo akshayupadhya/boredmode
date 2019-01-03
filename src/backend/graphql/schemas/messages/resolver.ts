@@ -22,8 +22,7 @@ export const messages = [
 export function messageResolver(parent, args) {
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
-			resolve(messages.filter(message => message.ID === args.ID)[0] || {})
+			resolve(messages.filter(message => message.ID == args.ID)[0] || {})
 		}, 2000)
 	})
-	// return messages.filter(message => message.ID == args.ID)[0] || {}
 }
