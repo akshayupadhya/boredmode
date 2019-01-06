@@ -16,5 +16,7 @@
 	"prettier.tabWidth": 2,
 	"prettier.stylelintIntegration": true,
 	"prettier.trailingComma": "es5",
-	"editor.formatOnSave": true
+	"editor.formatOnSave": true,
+	"editor.formatOnPaste": true,
+	"editor.minimap.enabled": true
 }
