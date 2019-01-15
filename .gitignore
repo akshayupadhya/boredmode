@@ -12,7 +12,8 @@ dist/
 
 #error log
 yarn-error.log
-
+#logs
+logs/
 #env files
 .env
 .env.docker
